@@ -1,0 +1,27 @@
+before:
+  hooks:
+    - go mod download
+    - go generate ./...
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - 386
+      - amd64
+archives:
+  - 'name_template': '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    replacements:
+      darwin: macos
+      linux: linux
+      windows: windows
+      386: i386
+      amd64: amd64
+    format_overrides:
+      - goos: darwin
+        format: zip
+      - goos: windows
+        format: zip
