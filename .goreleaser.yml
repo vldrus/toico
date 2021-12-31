@@ -23,5 +23,7 @@ archives:
     format_overrides:
       - goos: darwin
         format: zip
+      - goos: linux
+        format: tar.xz
       - goos: windows
         format: zip
