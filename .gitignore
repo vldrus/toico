@@ -3,5 +3,7 @@
 
 .vscode
 
+*.ico
+
 toico
 toico.exe
